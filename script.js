@@ -11,7 +11,7 @@ const siteConfig = {
   // Background music: path to an mp3 file placed in /audio/.
   // Plays automatically when the page opens (browser-permitting -- see script.js),
   // and can be toggled on/off from the music card.
-  musicSrc: 'audio/our-song.mp3',
+  musicSrc: 'our-song.mp3',
   musicVolume: 0.75,
 
   // Ending section copy
