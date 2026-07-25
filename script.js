@@ -25,12 +25,12 @@ const siteConfig = {
 // MEMORIES -- one entry per photo. `src` should point at a file placed in
 // /images/. Replace these with your own photos and captions.
 const memories = [
-  { id: 1, src: 'images/image1.jpg', alt: 'Placeholder memory photo one', caption: 'Picture that I always look at when I miss you' },
-  { id: 2, src: 'images/image2.jpg', alt: 'Placeholder memory photo two', caption: 'Goofy ahh, Sofi:]' },
-  { id: 3, src: 'images/image3.jpg', alt: 'Placeholder memory photo three', caption: 'Favorite picture of them all:)' },
-  { id: 4, src: 'images/image4.jpg', alt: 'Placeholder memory photo four', caption: 'Spontiii date' },
-  { id: 5, src: 'images/image5.jpg', alt: 'Placeholder memory photo five', caption: 'My cotilion partner and forever partner' },
-  { id: 6, src: 'images/image6.jpg', alt: 'Placeholder memory photo six', caption: 'Trip that I will never forget' }
+  { id: 1, src: 'image1.jpg', alt: 'Placeholder memory photo one', caption: 'Picture that I always look at when I miss you' },
+  { id: 2, src: 'image2.jpg', alt: 'Placeholder memory photo two', caption: 'Goofy ahh, Sofi:]' },
+  { id: 3, src: 'image3.jpg', alt: 'Placeholder memory photo three', caption: 'Favorite picture of them all:)' },
+  { id: 4, src: 'image4.jpg', alt: 'Placeholder memory photo four', caption: 'Spontiii date' },
+  { id: 5, src: 'image5.jpg', alt: 'Placeholder memory photo five', caption: 'My cotilion partner and forever partner' },
+  { id: 6, src: 'image6.jpg', alt: 'Placeholder memory photo six', caption: 'Trip that I will never forget' }
 ];
 
 // LETTER -- supports simple paragraphs. Each string in the array becomes
