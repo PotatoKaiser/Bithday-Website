@@ -1,0 +1,194 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/svg+xml" href="icons/favicon.svg" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <meta name="theme-color" content="#89CFF0" />
+  <meta name="description" content="A handcrafted interactive birthday gift" />
+  <title>Happy Birthday,Mi love</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500&family=Poppins:wght@300;400;500;600;700&family=Quicksand:wght@400;500;600;700&family=Nunito:wght@400;500;600;700;800&display=swap"
+    rel="stylesheet"
+  />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- ambient background: drifting gradient blobs + grain -->
+  <div class="bg-effects" aria-hidden="true">
+    <div class="bg-wash"></div>
+    <div class="blob blob-1"></div>
+    <div class="blob blob-2"></div>
+    <div class="blob blob-3"></div>
+    <div class="blob blob-4"></div>
+    <svg class="grain" xmlns="http://www.w3.org/2000/svg">
+      <filter id="grain">
+        <feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="2" stitchTiles="stitch" />
+      </filter>
+      <rect width="100%" height="100%" filter="url(#grain)" />
+    </svg>
+  </div>
+
+  <!-- desktop floating glass navbar -->
+  <nav class="navbar-desktop" aria-label="Primary" id="navbar-desktop">
+    <ul class="navbar-pill" id="nav-list-desktop"></ul>
+  </nav>
+
+  <!-- mobile top bar + hamburger -->
+  <div class="navbar-mobile-bar">
+    <div class="navbar-mobile-label">🎉 Birthday</div>
+    <button class="navbar-mobile-toggle tap-target" id="mobile-menu-toggle" aria-label="Open menu" aria-expanded="false">
+      <span class="icon-menu" id="mobile-menu-icon"></span>
+    </button>
+  </div>
+
+  <!-- mobile menu overlay -->
+  <div class="navbar-mobile-overlay" id="mobile-menu-overlay">
+    <ul class="navbar-mobile-menu" id="nav-list-mobile"></ul>
+  </div>
+
+  <main class="site-main">
+
+    <!-- HERO -->
+    <section id="hero" class="hero-section">
+      <div class="particles-field" id="particles-hero-sparkle"></div>
+      <div class="particles-field" id="particles-hero-dot"></div>
+
+      <p class="hero-eyebrow reveal-on-load" style="animation-delay: 0s">a little something, just for you</p>
+
+      <h1 class="hero-title reveal-on-load" style="animation-delay: .1s">
+        Happy <span id="hero-age"></span><sup class="hero-title-sup">th</sup> Birthday,<br />
+        <span class="text-gradient-sky hero-title-name" id="hero-name"></span>
+      </h1>
+
+      <button class="scroll-down-btn tap-target reveal-on-load" style="animation-delay: 1.2s" id="scroll-down-btn" aria-label="Scroll to music">
+        <span class="scroll-down-label">scroll</span>
+        <span class="icon-chevron-down"></span>
+      </button>
+    </section>
+
+    <!-- MUSIC -->
+    <section id="music" class="site-section">
+      <div class="container container-2xl music-container">
+        <div class="particles-field" id="particles-music"></div>
+        <div class="section-heading" id="music-heading">
+          <p class="section-eyebrow">press play</p>
+          <h2 class="section-title">A little soundtrack</h2>
+        </div>
+
+        <div class="music-card glass reveal-up" id="music-card">
+          <div class="music-card-top">
+            <button class="vinyl tap-target" id="vinyl-toggle" aria-pressed="true" aria-label="Pause music">
+              <div class="vinyl-ring vinyl-ring-1"></div>
+              <div class="vinyl-ring vinyl-ring-2"></div>
+              <div class="vinyl-label">
+                <div class="vinyl-hole"></div>
+              </div>
+            </button>
+            <div class="music-info">
+              <p class="music-info-title"><span class="icon-music"></span> our song</p>
+              <p class="music-info-sub">a little something to listen to while you scroll</p>
+              <div class="equalizer" aria-hidden="true">
+                <span class="eq-bar" style="--h:0.4"></span>
+                <span class="eq-bar" style="--h:0.9"></span>
+                <span class="eq-bar" style="--h:0.6"></span>
+                <span class="eq-bar" style="--h:1"></span>
+                <span class="eq-bar" style="--h:0.5"></span>
+                <span class="eq-bar" style="--h:0.8"></span>
+              </div>
+            </div>
+          </div>
+
+          <div class="music-embed">
+            <audio id="bg-audio" preload="auto" loop></audio>
+            <button class="music-toggle-btn tap-target" id="music-toggle-btn" aria-pressed="true" aria-label="Pause music">
+              <span class="icon" id="music-toggle-icon"></span>
+              <span class="music-toggle-label" id="music-toggle-label">playing</span>
+            </button>
+          </div>
+
+          <div class="music-notes" aria-hidden="true">
+            <span class="music-note" style="animation-delay:0s">♪</span>
+            <span class="music-note" style="animation-delay:.7s">♫</span>
+            <span class="music-note" style="animation-delay:1.4s">♪</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- MEMORIES -->
+    <section id="memories" class="site-section">
+      <div class="container container-6xl">
+        <div class="section-heading" id="memories-heading">
+          <p class="section-eyebrow">a few pictures</p>
+          <h2 class="section-title">WORTH KEEPING FOREVER</h2>
+        </div>
+
+        <div class="memories-grid" id="memories-grid"></div>
+      </div>
+
+      <!-- lightbox -->
+      <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Photo viewer">
+        <button class="lightbox-close tap-target" id="lightbox-close" aria-label="Close photo viewer">
+          <span class="icon-x"></span>
+        </button>
+        <button class="lightbox-nav lightbox-prev tap-target" id="lightbox-prev" aria-label="Previous photo">
+          <span class="icon-chevron-left"></span>
+        </button>
+        <figure class="lightbox-figure" id="lightbox-figure">
+          <img class="lightbox-img" id="lightbox-img" src="" alt="" />
+          <figcaption class="lightbox-caption" id="lightbox-caption"></figcaption>
+        </figure>
+        <button class="lightbox-nav lightbox-next tap-target" id="lightbox-next" aria-label="Next photo">
+          <span class="icon-chevron-right"></span>
+        </button>
+      </div>
+    </section>
+
+    <!-- LETTER -->
+    <section id="letter" class="site-section">
+      <div class="container container-xl">
+        <div class="section-heading" id="letter-heading">
+          <p class="section-eyebrow">one more thing</p>
+          <h2 class="section-title">A little letter</h2>
+        </div>
+
+        <div class="letter-wrap">
+          <button class="letter-envelope tap-target" id="letter-envelope" aria-label="Open the letter">
+            <img class="letter-envelope-img" src="images/envelope.png" alt="A sealed envelope" width="900" height="644" />
+            <span class="letter-envelope-label"><span class="icon-mail"></span> tap to open</span>
+          </button>
+
+          <div class="letter-card glass" id="letter-card" hidden>
+            <p class="letter-text" id="letter-text"><span id="letter-visible"></span><span class="letter-cursor" id="letter-cursor"></span></p>
+            <button class="letter-replay tap-target" id="letter-replay" hidden>
+              <span class="icon-rotate"></span> replay
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ENDING -->
+    <section id="ending" class="ending-section">
+      <div class="stars" id="stars-field" aria-hidden="true"></div>
+      <div class="particles-field" id="particles-ending"></div>
+
+      <div class="moon" aria-hidden="true">
+        <div class="moon-crater moon-crater-1"></div>
+        <div class="moon-crater moon-crater-2"></div>
+      </div>
+
+      <h2 class="ending-heading" id="ending-title"></h2>
+      <p class="ending-subtext" id="ending-subtext"></p>
+      <p class="ending-signoff" id="ending-signoff"></p>
+    </section>
+
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
